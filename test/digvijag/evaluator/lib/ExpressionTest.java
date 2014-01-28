@@ -31,4 +31,16 @@ public class ExpressionTest {
         Expression expression = new Expression(left, new Expression(1), new Subtraction());
         assertEquals(1.0, expression.evaluate());
     }
+
+    @Test
+    public void test_multiplications_of_expressions() {
+        Expression expression = new Expression(new Expression(2), new Expression(3), new Multiplication());
+        assertEquals(6.0, expression.evaluate());
+    }
+
+    @Test
+    public void test_division_of_expressions() {
+        Expression expression = new Expression(new Expression(6), new Expression(3), new Division());
+        assertEquals(2.0, expression.evaluate());
+    }
 }
