@@ -3,9 +3,9 @@ package digvijag.evaluator.lib;
 public class Expression {
     Double value;
     Expression left, right;
-    Operator operator;
+    Operation operator;
 
-    Expression(Expression left, Expression right, Operator operator) {
+    Expression(Expression left, Expression right, Operation operator) {
         this.left = left;
         this.right = right;
         this.operator = operator;
@@ -16,6 +16,6 @@ public class Expression {
     }
 
     double evaluate() {
-        return (this.value != null) ? value : operator.evaluate(left, right);
+        return (this.value != null) ? value : operator.perform(left, right);
     }
 }
