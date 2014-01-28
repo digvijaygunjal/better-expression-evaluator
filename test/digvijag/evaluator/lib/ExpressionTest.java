@@ -43,4 +43,19 @@ public class ExpressionTest {
         Expression expression = new Expression(new Expression(6), new Expression(3), new Division());
         assertEquals(2.0, expression.evaluate());
     }
+
+    @Test
+    public void test_all_operations_in_expressions() {
+        Expression addition = new Expression(new Expression(2), new Expression(3), new Addition());
+        Expression subtraction = new Expression(addition, new Expression(1), new Subtraction());
+        Expression multiplication = new Expression(subtraction, new Expression(2), new Multiplication());
+        Expression division = new Expression(multiplication, new Expression(2), new Division());
+        assertEquals(4.0, division.evaluate());
+    }
+
+    @Test
+    public void test_exponent_of_expressions() {
+        Expression expression = new Expression(new Expression(2), new Expression(3), new Exponent());
+        assertEquals(8.0, expression.evaluate());
+    }
 }
